@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front End Task | Anil Kumar</title>
+    <!-- Bootstrap V5 Stylesheet -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section>
+        <div class="container bg-light py-5">
+            <div class="row title justify-content-center">
+                <h1 class="text-center">Resume Form</h1>
+                <div class="col-xxl-8 col-lg-8 col-md-8 col-12">
+                    <form action="mail_handler.php" name="form" id="form" class="row g-3" method="POST">
+ 
+                        <div class="col-xxl-6 col-lg-6 col-md-6 col-12">
+                            <label class="form-label">First Name</label>
+                            <input type="text" name="fname" onkeypress="return allowOnlyLetters(event,this);" class="form-control" id="f-name" required>
+                        </div>
+                        <div class="col-xxl-6 col-lg-6 col-md-6 col-12">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" name="lname" onkeypress="return allowOnlyLetters(event,this);" class="form-control" id="l-name" required>
+                        </div>
+
+                        <div class="col-xxl-6 col-lg-6 col-md-6 col-12">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="email"
+                                placeholder="name@example.com" required>
+                        </div>
+                        <div class="col-xxl-6 col-lg-6 col-md-6 col-12">
+                            <label class="form-label">Contact</label>
+                            <input type="text" name="phone" class="form-control" id="phone" placeholder="123456780" value=""
+                            onkeypress="javascript:return isNumber(event)" required>
+                        </div>
+
+                        <div class="col-xxl-6 col-lg-6 col-md-6 col-12">
+                            <label class="form-label">Gender</label> <br />
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male" value="option1">
+                                <label class="form-check-label"> Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female" value="option2">
+                                <label class="form-check-label"> Female</label>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-lg-6 col-md-6 col-12">
+                            <label class="form-label">Hobbies</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Interest</label>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-6 col-lg-6 col-md-6 col-12">
+                            <label onload="resetSelection()" class="form-label">State</label>
+                            <select id="countrySelect" onchange="makeSubmenu(this.value)" class="form-select" required>
+                                <option value="" disabled selected>Choose State</option>
+                                <option>Arunachal</option>
+                                <option>Andra Pradesh</option>
+                                <option>Assam</option>
+                                <option>Bihar</option>
+                                <option>Chhattisgarh</option>
+                                <option>Delhi</option>
+                                <option>Goa</option>
+                                <option>Gujarat</option>
+                                <option>Haryana</option>
+                                <option>Himachal Pradesh</option>
+                                <option>Jammu and Kashmir</option>
+                                <option>Jharkhand</option>
+                                <option>Karnataka</option>
+                                <option>Kerala</option>
+                                <option>Madya Pradesh</option>
+                                <option>Maharashtra</option>
+                                <option>Manipur</option>
+                                <option>Meghalaya</option>
+                                <option>Mizoram</option>
+                                <option>Nagaland</option>
+                                <option>Orissa</option>
+                                <option>Punjab</option>
+                                <option>Rajasthan</option>
+                                <option>Sikkim</option>
+                                <option>Tamil Nadu </option>
+                                <option>Telagana</option>
+                                <option>Tripura</option>
+                                <option>Uttar Pradesh</option>
+                                <option>Uttarakhand</option>
+                                <option>West Bengal</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-4 col-lg-4 col-md-4 col-12">
+                            <label class="form-label">City</label>
+                            <select id="citySelect" class="form-select" required>
+                                <option value="" disabled selected>Choose City</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-2 col-lg-2 col-md-2 col-12">
+                            <label class="form-label">Zip</label>
+                            <input type="text" class="form-control" id="inputZip" placeholder="110001" value=""
+                            onkeypress="javascript:return isNumber(event)" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Qualification</label>
+                            <select class="form-select" required>
+                                <option selected>Post Graduation</option>
+                                <option value="1">Graduation</option>
+                                <option value="2">12th</option>
+                                <option value="3">10th</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Career Objective / Bio</label>
+                            <textarea name="objective" class="form-control" id="objective" rows="3"
+                                required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Profile Image</label>
+                            <div class="form-file">
+                                <input type="file" name="file" class="form-file-input" id="customFile" required>
+                                <label class="form-file-label" for="customFile">
+                                  <span class="form-file-text">Choose file...</span>
+                                  <span class="form-file-button">Browse</span>
+                                </label>
+                              </div>
+                        </div>
+
+                        
+                        <div class="col-12">
+                            <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap V5 JavaScript -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

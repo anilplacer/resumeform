@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap');
+*{
+    font-family: 'Baloo Paaji 2', cursive;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    position: relative;
+    color: #37517e;
+  }
+h1::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 180px;
+    height: 1px;
+    background: #FFC300;
+    bottom: 1px;
+    left: calc(50% - 90px);
+  }
+h1::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #FF5733;
+    bottom: 0;
+    left: calc(50% - 25px);
+  }
